@@ -1,0 +1,29 @@
+name: deploy-gridsome
+on:
+  push:
+    branches:
+      - master
+  repository_dispatch:
+    types: [deploy]
+
+jobs:
+  deploy:
+    name: Deploy Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build dist
+      run: |
+        yarn add @gridsome/cli
+        yarn
+        yarn build
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@4.0
+      with:
+        switches: -avz --no-perms --delete --exclude-from=excludes.txt
+        path: dist/
+        remote_path: public_html/
+        remote_host: ${{ secrets.DEPLOY_HOST }}
+        remote_port: ${{ secrets.DEPLOY_PORT }}
+        remote_user: ${{ secrets.DEPLOY_USER }}
+        remote_key: ${{ secrets.DEPLOY_KEY }}
