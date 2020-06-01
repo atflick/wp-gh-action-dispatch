@@ -1,4 +1,4 @@
-# Wordpress GH Action Dispatch
+# Wordpress Github Action Dispatch
 Easily dispatch actions from Wordpress with a button.  Especially great for publishing static sites that use WP as a headless API coupled with something like Gridsome or Gatsby.
 
 ## Add all necessary settings in the WP backend
@@ -10,3 +10,13 @@ The toolbar will also display a status badge for the most recent action run, dis
 ![statuses](https://raw.githubusercontent.com/atflick/wp-gh-action-dispatch/master/img/statuses.png)
 
 Example of a [simple workflow file](/examples/sample.yml) used to deploy a Gridsome site
+
+---
+
+### Issues & Feature Requests
+
+If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](../../issues/new) or [create a pull request](../../compare). Please provide as much info as needed in order to help me resolving / approve your request.
+
+### License
+
+Wordpress Github Action Dispatch is licensed under the [GPLv3 or later](LICENSE.md).
